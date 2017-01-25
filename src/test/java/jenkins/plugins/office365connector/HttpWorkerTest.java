@@ -71,6 +71,7 @@ public class HttpWorkerTest {
 	
 	@Test
 	public void testSendingMultipleWebhooks() throws IOException, InterruptedException {
+
 		ExecutorService executorService = Executors.newCachedThreadPool();
 		HttpWorker worker1 = new HttpWorker("http://localhost:8000/test1", "test1body", 30000, 1, Mockito.mock(PrintStream.class));
 		HttpWorker worker2 = new HttpWorker("http://localhost:8000/test2", "test2body", 30000, 1, Mockito.mock(PrintStream.class));
@@ -80,6 +81,7 @@ public class HttpWorkerTest {
 		executorService.awaitTermination(5, TimeUnit.SECONDS);
 		Assert.assertTrue(MyHandler.getTest1Result());
 		Assert.assertTrue(MyHandler.getTest2Result());
+
 	}
 	
 	@Test
@@ -141,3 +143,5 @@ public class HttpWorkerTest {
         }
     }
 }
+
+// testing commit
